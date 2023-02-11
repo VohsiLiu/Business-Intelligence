@@ -1,0 +1,39 @@
+@startuml
+
+skinparam DefaultFontName PingFangSC-Regular
+
+class 销售事实 {
+    客户编号（FK）
+    产品编号（FK）
+    购买日期（FK）
+    购买金额
+    ……
+}
+
+class 产品维度 {
+    ……
+}
+
+class 日期维度 {
+    ……
+}
+
+class 客户维度 {
+    客户编号（PK）
+    姓名
+    地址
+    购买金额总和
+    上次购买日期
+    ……
+}
+
+产品维度 - 销售事实
+日期维度 - 销售事实
+销售事实 - 客户维度
+
+产品维度 -[hidden]down- 日期维度
+
+hide methods
+hide circle
+
+@enduml
